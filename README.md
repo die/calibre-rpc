@@ -3,8 +3,6 @@
 
 Calibre RPC is a plugin for the e-book manager [Calibre](https://calibre-ebook.com/) to enable Discord Rich Presence.
 
-This plugin makes use of [pypresence](https://github.com/qwertyquerty/pypresence) to allow a user to showcase their current Calibre activity within [Discord](https://discord.com/).
-
 This project was inspired by [Split](https://www.mobileread.com/forums/showthread.php?t=352476).
 ## Features
 - Displays a browsing message when Calibre is opened, including the number of books in the current library.
@@ -13,7 +11,7 @@ This project was inspired by [Split](https://www.mobileread.com/forums/showthrea
 
 ## Usage
 
-Download the [latest release](https://github.com/die/calibre-rpc/releases/latest) and put the zip archive in `%appdata%/calibre/plugins`. 
+Download the [latest release](https://github.com/die/calibre-rpc/releases/latest), extract its contents, and put `Calibre RPC.zip` in `%appdata%/calibre/plugins`. 
 
 You can also load the plugin from file in Calibre's preferences.
 
@@ -32,3 +30,5 @@ To learn more about plugin development, there are quick tutorials found on the [
 
 ## Credits
 The image found in this README.md originates from [Calibre's source](https://github.com/kovidgoyal/calibre).
+
+This plugin makes use of [pypresence](https://github.com/qwertyquerty/pypresence) to allow a user to showcase their current Calibre activity within [Discord](https://discord.com/).
