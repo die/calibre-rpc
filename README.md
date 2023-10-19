@@ -4,6 +4,7 @@
 Calibre RPC is a plugin for the e-book manager [Calibre](https://calibre-ebook.com/) to enable Discord Rich Presence.
 
 This project was inspired by [Split](https://www.mobileread.com/forums/showthread.php?t=352476).
+<br><br>
 ## Features
 - Displays a browsing message when Calibre is opened, including the number of books in the current library.
 - Displays the most recent book and its author opened by Calibre's ebook reader.
