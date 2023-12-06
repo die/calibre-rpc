@@ -9,13 +9,17 @@ class CalibreRPC(InterfaceActionBase):
     description = 'Provides Discord Rich Presence to Calibre'
     supported_platforms = ['windows', 'osx', 'linux']
     author = 'https://github.com/die'
-    version = (1, 0, 2)
+    version = (1, 0, 3)
     can_be_disabled = True
     minimum_calibre_version = (0, 7, 53)
     actual_plugin = 'calibre_plugins.calibre_rpc:Main'
 
 
 class Main(InterfaceAction):
+
+    name = 'Calibre RPC'
+    action_spec = ('Calibre RPC', None,
+                   'Provides Discord Rich Presence to Calibre', None)
     RPC = None
     db = None
 
