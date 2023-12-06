@@ -28,10 +28,9 @@ To learn more about plugin development, there are quick tutorials found on the [
 ## Goals
 - Display the current page out of the total pages calculated by Calibre's ebook reader.
 - Display the current file being edited in Calibre's ebook editor.
-- Enable/disable the rich presence without requiring a restart.
 - Update the size of the library shown by the presence in real-time.
 
 ## Credits
 The image found in this README.md originates from [Calibre's source](https://github.com/kovidgoyal/calibre).
-
+The discord icon used for this plugin is from [freepnglogos](https://www.freepnglogos.com/images/discord-logo-png-7622.html).
 This plugin makes use of [pypresence](https://github.com/qwertyquerty/pypresence) to allow a user to showcase their current Calibre activity within [Discord](https://discord.com/).

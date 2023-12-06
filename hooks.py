@@ -13,7 +13,9 @@ def view_hook(main):
         if len(book_ids) > 0:
             title = main.db.field_for('title', book_ids[0], default_value='Unknown')
             author = main.db.field_for('authors', book_ids[0], default_value='Unknown Author')[0]
-            main.RPC.update(Action.VIEW, details='Reading: ' + title, state='By: ' + author)
+
+            if main.RPC is not None:
+                main.RPC.update(Action.VIEW, details='Reading: ' + title, state='By: ' + author)
 
     main.gui.iactions['View']._view_calibre_books = _view_calibre_books
 
@@ -28,6 +30,8 @@ def edit_hook(main):
 
         title = main.db.field_for('title', book_id, default_value='Unknown')
         author = main.db.field_for('authors', book_id, default_value='Unknown Author')[0]
-        main.RPC.update(Action.EDIT, details='Editing: ' + title, state='By: ' + author)
+
+        if main.RPC is not None:
+            main.RPC.update(Action.EDIT, details='Editing: ' + title, state='By: ' + author)
 
     main.gui.iactions['Tweak ePub'].do_tweak = do_tweak

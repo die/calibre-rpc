@@ -1,4 +1,3 @@
-import os
 import time
 
 from enum import Enum
@@ -12,16 +11,19 @@ class Action(Enum):
 
 
 class RPC:
-    Presence = None
-
     def __init__(self):
-        client_id = '1163996659886346270'
-        self.Presence = Presence(client_id, pipe=0)
+        self.Presence = None
 
     def start(self):
+        if self.Presence is None:
+            client_id = '1163996659886346270'
+            self.Presence = Presence(client_id, pipe=0)
+
         self.Presence.connect()
 
     def update(self, action, details=None, state=None):
+        if not self.enabled():
+            return
 
         # TODO: use a switch on the action for different images
 
@@ -29,6 +31,11 @@ class RPC:
                              start=time.time(),
                              buttons=[{"label": "Download Calibre", "url": "https://calibre-ebook.com/"}])
 
+    def enabled(self):
+        return self.Presence is not None
+
     def shutdown(self):
-        self.Presence.clear(os.getpid())
-        self.Presence.close()
+        if self.enabled():
+            self.Presence.clear()
+            self.Presence.close()
+            self.Presence = None
