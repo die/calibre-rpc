@@ -18,9 +18,11 @@ You can also load the plugin from file in Calibre's preferences.
 
 ## Development
 - Open the directory with any IDE of your choice that supports Python. For reference, this project was written with [PyCharm](https://www.jetbrains.com/pycharm/).
+- Set the `CALIBRE_DEVELOP_FROM` system environment variable to a local installation of calibre's source code.
+- Set the `Path` system environment variable to your local installation of Calibre, typically `C:\Program Files\Calibre2`.
 - To build the plugin from source, run `calibre-customize -b  /path/to/calibre-rpc-master;` inside the terminal.
 - To run Calibre in debug mode with the plugin, use the command `calibre-debug -g`.
-  
+
 To learn more about plugin development, there are quick tutorials found on the [calibre website](https://manual.calibre-ebook.com/creating_plugins.html).
 
 ## Goals
