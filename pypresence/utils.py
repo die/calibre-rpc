@@ -4,6 +4,7 @@ import os
 import sys
 import tempfile
 
+
 def remove_none(d: dict):
     for item in d.copy():
         if isinstance(d[item], dict):
