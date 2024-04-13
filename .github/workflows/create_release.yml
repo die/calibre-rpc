@@ -45,7 +45,8 @@ jobs:
           tag_name: ${{ steps.create_tag.outputs.tag }}
           release_name: Release ${{ steps.create_tag.outputs.tag }}
           body: |
-            - ${{ github.event.pull_request.title }} https://github.com/die/calibre-rpc/pull/${{ github.event.pull_request.number}} @${{ github.event.pull_request.user.login }}
+            ## What's Changed
+            * ${{ github.event.pull_request.title }} by @${{ github.event.pull_request.user.login }} in https://github.com/die/calibre-rpc/pull/${{ github.event.pull_request.number}}
           latest: true
           draft: false
           prerelease: false
