@@ -1,0 +1,61 @@
+name: Create Release
+
+on:
+  pull_request:
+      branches:
+        - master
+      types: [closed]
+
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Get Latest Tag
+        id: get_tag
+        run: |
+          git fetch --tags
+          tag=$(git tag --list | sort -V | tail -n 1)
+          echo ::set-output name=tag::$tag
+          
+      - name: Create Tag
+        id: create_tag
+        run: |
+          previous_tag=${{ steps.get_tag.outputs.tag }}
+          major=$(echo $previous_tag | cut -d '.' -f 1)
+          minor=$(echo $previous_tag | cut -d '.' -f 2)
+          patch=$(echo $previous_tag | cut -d '.' -f 3)
+          patch=$((patch + 1))
+          tag="${major}.${minor}.${patch}"
+          echo "::set-output name=tag::$tag"
+      
+      - name: Zip repository
+        run: |
+          git ls-files | zip calibre-rpc.zip -@
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.create_tag.outputs.tag }}
+          release_name: Release ${{ steps.create_tag.outputs.tag }}
+          body: |
+            - ${{ github.event.pull_request.title }} https://github.com/die/calibre-rpc/pull/${{ github.event.pull_request.number}} @${{ github.event.pull_request.user.login }}
+          latest: true
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./calibre-rpc.zip
+          asset_name: calibre-rpc.zip
+          asset_content_type: application/zip
