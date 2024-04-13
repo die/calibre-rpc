@@ -9,7 +9,7 @@ class CalibreRPC(InterfaceActionBase):
     description = 'Provides Discord Rich Presence to Calibre'
     supported_platforms = ['windows', 'osx', 'linux']
     author = 'https://github.com/die'
-    version = (1, 0, 3)
+    version = (1, 0, 0)
     can_be_disabled = True
     minimum_calibre_version = (0, 7, 53)
     actual_plugin = 'calibre_plugins.calibre_rpc:Main'
