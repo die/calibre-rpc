@@ -7,7 +7,7 @@ class PyPresenceException(Exception):
 
 class DiscordNotFound(PyPresenceException):
     def __init__(self):
-        super().__init__('Could not find Discord installed and running on this machine.')
+        super().__init__('Could not find Discord installed and running on this machine. Please run Discord and then start Calibre RPC.')
 
 
 class InvalidPipe(PyPresenceException):
