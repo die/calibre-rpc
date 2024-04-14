@@ -10,18 +10,20 @@ This project was inspired by [Split](https://www.mobileread.com/forums/showthrea
 - Displays the most recent book and its author opened by Calibre's ebook reader.
 - Displays the most recent book and its author opened by Calibre's ebook editor.
 
-## Usage
+## Installation
 
-Download the [latest release](https://github.com/die/calibre-rpc/releases/latest), extract its contents, and put `Calibre RPC.zip` in `%appdata%/calibre/plugins`. 
-
-You can also load the plugin from file in Calibre's preferences.
+1. Download the [latest release](https://github.com/die/calibre-rpc/releases/latest).
+2. Go into Calibre and select Preferences -> Plugins -> Loan plugin from file -> select the zip you downloaded.
+3. Restart Calibre.
 
 ## Development
-- Open the directory with any IDE of your choice that supports Python. For reference, this project was written with [PyCharm](https://www.jetbrains.com/pycharm/).
-- Set the `CALIBRE_DEVELOP_FROM` system environment variable to a local installation of calibre's source code.
+### Windows
+- Clone this repository and install [make](https://gnuwin32.sourceforge.net/packages/make.htm).
+- Open the repository in Visual Studio Code, or your preferable IDE, and run `make install` to get the calibre source or to update your current source.
+- Set the `CALIBRE_DEVELOP_FROM` system environment variable to a local installation of calibre's source code, which should now be in the directory under `calibre`.
 - Set the `Path` system environment variable to your local installation of Calibre, typically `C:\Program Files\Calibre2`.
-- To build the plugin from source, run `calibre-customize -b  /path/to/calibre-rpc-master;` inside the terminal.
-- To run Calibre in debug mode with the plugin, use the command `calibre-debug -g`.
+- To build the plugin from source, run `make compile` inside the terminal.
+- To export the plugin as a zip, run `make zip`.
 
 To learn more about plugin development, there are quick tutorials found on the [calibre website](https://manual.calibre-ebook.com/creating_plugins.html).
 
