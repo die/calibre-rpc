@@ -91,8 +91,9 @@ class BaseClient:
             payload = payload.data
         payload = json.dumps(payload)
 
-        assert self.sock_writer is not None, "You must connect your client before sending events!"
-
+        if self.sock_writer is None:
+            raise DiscordNotFound
+        
         self.sock_writer.write(
             struct.pack(
                 '<II',
