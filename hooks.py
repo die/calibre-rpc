@@ -1,13 +1,13 @@
 """ Module for storing hooks to GUI actions """
 
-from calibre_plugins.calibre_rpc.rpc import Action # type: ignore # pylint: disable=import-error
+from calibre_plugins.calibre_rpc.rpc import Action # type: ignore
 
 def view_hook(main):
     """
         hook for viewing a book
     """
 
-    view_action = main.gui.iactions['View']._view_calibre_books # pylint: disable=protected-access
+    view_action = main.gui.iactions['View']._view_calibre_books
 
     def _view_calibre_books(book_ids):
         # if there is a book to open
@@ -16,12 +16,12 @@ def view_hook(main):
             author = main.db.field_for('authors', book_ids[0], default_value='Unknown')[0]
 
             if main.rpc.is_connected():
-                main.rpc.update(Action.VIEW, details='Reading book', state=title + ' by ' + author)
+                main.rpc.update(Action.VIEW, details='Reading a book', state=title + ' by ' + author)
 
         # call the original function to open the reader
         view_action(book_ids)
 
-    main.gui.iactions['View']._view_calibre_books = _view_calibre_books # pylint: disable=protected-access
+    main.gui.iactions['View']._view_calibre_books = _view_calibre_books
 
 
 def edit_hook(main):
@@ -36,7 +36,7 @@ def edit_hook(main):
         author = main.db.field_for('authors', book_id, default_value='Unknown')[0]
 
         if main.rpc.is_connected():
-            main.rpc.update(Action.EDIT, details='Editing book', state=title + ' by ' + author)
+            main.rpc.update(Action.EDIT, details='Editing a book', state=title + ' by ' + author)
 
         # call the original function when opening the editor
         edit_action(book_id)

@@ -2,7 +2,7 @@
 
 import time
 from enum import Enum
-from calibre_plugins.calibre_rpc.pypresence.presence import Presence # type: ignore # pylint: disable=import-error
+from calibre_plugins.calibre_rpc.pypresence.presence import Presence # type: ignore
 
 
 class Action(Enum):
@@ -42,7 +42,7 @@ class RPC:
         """
 
         self.presence.update(details=details,
-                            state=state, \
+                            state=state,
                             large_image="calibre",
                             large_text="Calibre",
                             start=time.time(),

@@ -1,0 +1,22 @@
+[MASTER]
+# A comma-separated list of packages or modules for which imports should not be analyzed.
+# This can be used to avoid analyzing dependencies that you are not interested in.
+# A regular expression for modules to be excluded from the filesystem inspection. The regex matches against base names, not paths.
+ignore-patterns=test_*.py,docs/*.rst
+
+[MESSAGES CONTROL]
+# Disable the message, report, category or checker with the given id(s). You can get the list of all codes from Pylint's documentation.
+disable=import-error
+        no-name-in-module
+        import-error
+        protected-access
+        bare-except
+        broad-exception-caught
+
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=100
+
+[REPORTS]
+# Disable the report
+reports=no
