@@ -7,8 +7,7 @@ This project was inspired by [Split](https://www.mobileread.com/forums/showthrea
 <br><br>
 ## Features
 - Displays a browsing message when Calibre is opened, including the number of books in the current library.
-- Displays the most recent book and its author opened by Calibre's ebook reader.
-- Displays the most recent book and its author opened by Calibre's ebook editor.
+- Displays the most recent book and its author opened by Calibre's ebook reader and editor.
 
 ## Installation
 
