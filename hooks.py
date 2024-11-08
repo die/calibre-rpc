@@ -52,7 +52,6 @@ def edit_metadata_hook(main):
 
     def edit_metadata_for(rows, book_ids, bulk=None):
         if main.rpc.is_connected():
-            details = 'Editing metadata'
             if len(book_ids) > 1:
                 state = 'Bulk editing (' + str(len(book_ids)) + ' books)'
             else:
@@ -60,7 +59,7 @@ def edit_metadata_hook(main):
                 author = main.db.field_for('authors', book_ids[0], default_value='Unknown')[0]
                 state = title + ' by ' + author
 
-            main.rpc.update(Action.EDIT, details=details, state=state)
+            main.rpc.update(Action.EDIT, details='Editing metadata', state=state)
 
         # call the original function to edit metadata
         edit_medadata_action(rows, book_ids, bulk)

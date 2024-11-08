@@ -41,6 +41,16 @@ class RPC:
             TODO: use a switch on the action for different images
         """
 
+        # if state is too large, only use the book's title
+        if (state is not None and len(state) > 128): 
+            title = state.split(' by ')[0]
+
+            # handle case where the title still exceeds limit
+            if (len(title) > 128):
+                title = title[:125] + '...'
+
+            state = title
+
         self.presence.update(details=details,
                             state=state,
                             large_image="calibre",
