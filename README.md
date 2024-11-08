@@ -29,7 +29,6 @@ To learn more about plugin development, there are quick tutorials found on the [
 
 ## Goals
 - Display the current page out of the total pages calculated by Calibre's ebook reader.
-- Display the current file being edited in Calibre's ebook editor.
 - Update the size of the library shown by the presence in real-time.
 
 ## Credits
