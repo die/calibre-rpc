@@ -43,7 +43,7 @@ class CalibreRPC(InterfaceAction):
         """ Reset RPC to Browsing State """
 
         if self.rpc.is_connected():
-            state = 'Browsing Library ' + '(' + str(len(self.db.search(''))) + ' Books)'
+            state = 'Browsing Library: ' + str(len(self.db.search(''))) + ' Book(s)'
             self.rpc.update(Action.BROWSE, state)
 
 
@@ -66,8 +66,7 @@ class CalibreRPC(InterfaceAction):
 
         try:
             self.rpc.start()
-            state = 'Browsing Library ' + '(' + str(len(self.db.search(''))) + ' Books)'
-            self.rpc.update(Action.BROWSE, state)
+            self.set_browsing_action()
             return True
         except Exception as e:
             self.show_exception(e)
@@ -109,6 +108,14 @@ class CalibreRPC(InterfaceAction):
         view_hook(self)
         edit_hook(self)
         edit_metadata_hook(self)
+
+    
+    def library_changed(self, db):
+        """
+            Called when user switches virtual libraries
+        """
+        self.db = db.new_api
+        self.set_browsing_action()
 
 
     def shutting_down(self):
